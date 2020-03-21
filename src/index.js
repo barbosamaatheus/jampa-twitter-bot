@@ -4,7 +4,7 @@ const T = new twit(config);
 
 var query = {
   q: ["João Pessoa", "joão pessoa", "JOÃO PESSOA"],
-  count: 1,
+  count: 10,
   result_type: "recent"
 };
 
@@ -12,7 +12,7 @@ var query = {
 function retweetLatest() {
   T.get("search/tweets", query, function(error, data) {
     // log out any errors and responses
-    console.log(error);
+    console.log(error, data);
     // If our search request to the server had no errors...
     if (!error) {
       // ...then we grab the ID of the tweet we want to retweet...
