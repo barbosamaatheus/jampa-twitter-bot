@@ -1,6 +1,6 @@
 ## Robô Jampa 
 
-This bot retweets the latest tweet using the "João Pessoa" word. It attempts to retweet once per hour.
+This bot retweets the latest tweet using the "João Pessoa" word. He tries to retweet every five minutes
 
 _Note: you must be comfortable using your computer's command line interface to use this bot. If you've never used it, there are tutorials for [Mac OSX](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line) and [Windows](http://www.bleepingcomputer.com/tutorials/windows-command-prompt-introduction/)._ 
  
@@ -26,8 +26,6 @@ https://apps.twitter.com/app/new
  
 Once you're there, fill in the required fields: name, description, website. None of it really matters at all to your actual app, it's just for Twitter's information. Do the captcha and submit. 
  
-Next you'll see a screen with a "Details" tab. Click on the "Settings" tab and under "Application Type" choose "Read and Write", then hit the update button at the bottom. 
-
 Then go to the Keys and Access Tokens tab, and at the bottom click "create my access token". Nothing might happen immediately. Wait a minute and reload the page. then there should be "access token" and "access token secret", which are both long strings of letters and numbers. 
  
 Now use a text editor to open up the "config.js" file. It should look like this: 
@@ -56,6 +54,8 @@ Now type the following in the command line in your project directory:
 `npm start` 
  
 Hopefully at this point you see a message like "Success! Check your bot, it should have retweeted something." Check the Twitter account for your bot, and it should have retweeted a tweet with the "João Pessoa" word. 
+
+you can change a search string using the value of the constant **'q'** file n `index.js`. See the [documentation](https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators)
 
 ### License
 
