@@ -1,16 +1,12 @@
 const twit = require("twit");
 const config = require("./config.js");
 const T = new twit(config);
-const express = require("express");
 
-const app = express();
-
-const PORT = process.env.PORT || 3333;
 const q = "%22joao%20pessoa%22";
 
 const query = {
   q,
-  count: 5,
+  count: 15,
   result_type: "recent",
 };
 
@@ -57,6 +53,6 @@ function retweet() {
 retweet();
 // ...and then every hour/half after that. Time here is in milliseconds, so
 // 1000 ms = 1 second, 1 sec * 60 = 1 min, 1 min * 60 = 1 hour --> 1000 * 60 * 60
-setInterval(retweet, 1000 * 60);
+setInterval(retweet, 1000 * 60 * 5);
 
 app.listen(PORT);
