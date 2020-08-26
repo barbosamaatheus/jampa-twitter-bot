@@ -49,7 +49,6 @@ function retweet() {
   });
 }
 
-app.li;
 // Try to retweet something as soon as we run the program...
 retweet();
 // ...and then every hour/half after that. Time here is in milliseconds, so
