@@ -10,11 +10,9 @@ const q = "%22joao%20pessoa%22";
 
 const query = {
   q,
-  count: 15,
+  count: 5,
   result_type: "recent",
 };
-
-app.listen(PORT);
 
 // This function finds the latest tweet with the #MeetMaye hashtag, and retweets it.
 function retweet() {
@@ -59,4 +57,6 @@ function retweet() {
 retweet();
 // ...and then every hour/half after that. Time here is in milliseconds, so
 // 1000 ms = 1 second, 1 sec * 60 = 1 min, 1 min * 60 = 1 hour --> 1000 * 60 * 60
-setInterval(retweet, 1000 * 60 * 5);
+setInterval(retweet, 1000 * 60);
+
+app.listen(PORT);
