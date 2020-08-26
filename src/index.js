@@ -1,26 +1,32 @@
 const twit = require("twit");
 const config = require("./config.js");
 const T = new twit(config);
+const express = require("express");
 
+const app = express();
+
+const PORT = process.env.PORT || 3333;
 const q = "%22joao%20pessoa%22";
 
-var query = {
+const query = {
   q,
   count: 15,
-  result_type: "recent"
+  result_type: "recent",
 };
+
+app.listen(PORT);
 
 // This function finds the latest tweet with the #MeetMaye hashtag, and retweets it.
 function retweet() {
-  T.get("search/tweets", query, function(error, data) {
+  T.get("search/tweets", query, function (error, data) {
     // log out any errors and responses
 
-    data.statuses.map(item => {
+    data.statuses.map((item) => {
       const { id_str, text } = item;
 
       const result = {
         id_str,
-        text
+        text,
       };
       console.log(error, result);
       // If our search request to the server had no errors...
@@ -28,7 +34,7 @@ function retweet() {
         // ...then we grab the ID of the tweet we want to retweet...
         var retweetId = result.id_str;
         // ...and then we tell Twitter we want to retweet it!
-        T.post("statuses/retweet/" + retweetId, {}, function(error, response) {
+        T.post("statuses/retweet/" + retweetId, {}, function (error, response) {
           if (response) {
             console.log("Success! Retweet Successful!");
           }
@@ -49,6 +55,7 @@ function retweet() {
   });
 }
 
+app.li;
 // Try to retweet something as soon as we run the program...
 retweet();
 // ...and then every hour/half after that. Time here is in milliseconds, so
