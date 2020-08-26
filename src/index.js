@@ -29,12 +29,11 @@ function retweet() {
         var retweetId = result.id_str;
         // ...and then we tell Twitter we want to retweet it!
         T.post("statuses/retweet/" + retweetId, {}, function (error, response) {
-          if (response) {
-            console.log("Success! Retweet Successful!");
-          }
           // If there was an error with our Twitter call, we print it out here.
           if (error) {
             console.log("There was an error with Twitter:", error.allErrors);
+          } else {
+            console.log("Success! Retweet Successful!");
           }
         });
       }
