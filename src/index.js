@@ -1,11 +1,7 @@
 const twit = require("twit");
 const config = require("./config.js");
 const T = new twit(config);
-const express = require("express");
 
-const app = express();
-
-const PORT = process.env.PORT || 3333;
 const q = "%22joao%20pessoa%22";
 
 const query = {
@@ -13,8 +9,6 @@ const query = {
   count: 15,
   result_type: "recent",
 };
-
-app.listen(PORT);
 
 // This function finds the latest tweet with the #MeetMaye hashtag, and retweets it.
 function retweet() {
